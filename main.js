@@ -11,6 +11,8 @@ function createGrid (gridSize) {
         gridArea.innerText = `${i}`;
         gridArea.classList.add("area");
         gridAreas.push(gridArea);
+        gridArea.style.height = `${100/gridSize}%`;
+        gridArea.style.width = `${100/gridSize}%`;
         gridContainer.appendChild(gridArea);
         gridArea.addEventListener("mouseover", () => {
             gridArea.style.backgroundColor = "#888888";
@@ -20,3 +22,10 @@ function createGrid (gridSize) {
 
 createGrid(gridSize);
 
+let gridChanger = document.getElementById("gridChanger");
+
+gridChanger.addEventListener("click", () => {
+    do {
+        gridSize = prompt("Enter a new size");
+    } while (Number.isNaN(gridSize));
+});
